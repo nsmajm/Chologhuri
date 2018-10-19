@@ -1,5 +1,6 @@
 body{
-    overflow-y: hidden;
+
+    overflow-x: hidden;
 }
 .adminPanel{
     background-color: #f2edf3 !important;

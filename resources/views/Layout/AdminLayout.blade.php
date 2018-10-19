@@ -13,9 +13,9 @@
     <title>@yield('title')</title>
 </head>
 <body>
-    <div class="row">
+
         @include('admin.index')
-    </div>
+
 
 
 

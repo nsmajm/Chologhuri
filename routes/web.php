@@ -18,22 +18,21 @@ Route::group(['middleware' => ['auth']],function (){
     /*
     * Route group for Admin
     */
-    Route::group(['middleware' => ['auth','admin']],function (){
-        Route::get('/admin','Admin\AdminController@index')->name('admin.index');
-        Route::get('/admin/users','UserController@index')->name('admin.users.index');
-
+    Route::group([ 'prefix' => 'admin' ,'middleware' => ['auth','admin']],function (){
+        Route::get('dashboard','Admin\AdminController@index')->name('admin.index');
+        Route::get('users','Admin\UserController@index')->name('admin.user.index');
     });
     /*
      * Route Group For Author
      */
-    Route::group(['middleware' => ['auth','author']],function (){
+    Route::group(['prefix' => 'author' ,'middleware' => ['auth','author']],function (){
         Route::get('/author',function (){return "Author";});
 
     });
     /*
          * Route Group For Moderator
          */
-    Route::group(['middleware' => ['auth','moderator']],function (){
+    Route::group(['prefix' => 'moderator' ,'middleware' => ['auth','moderator']],function (){
 
         Route::get('/moderator',function (){return "Moderator";});
     });
