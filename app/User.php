@@ -1,7 +1,6 @@
 <?php
 
 namespace App;
-
 use App\Model\Comment;
 use App\Model\Event;
 use App\Model\Post;
@@ -20,8 +19,9 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array
      */
+    protected  $primaryKey='id';
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','status'
     ];
 
     /**
@@ -32,11 +32,11 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $hidden = [
         'password', 'remember_token',
     ];
-    public function profile(){
-        return $this->hasOne(UserInfo::class);
+    public function userinfos(){
+        return $this->hasMany(UserInfo::class);
     }
     public function role(){
-        return $this->hasOne(Role::class);
+        return $this->hasMany(Role::class);
     }
     public function posts(){
         return $this->hasMany(Post::class);
@@ -53,5 +53,8 @@ class User extends Authenticatable implements MustVerifyEmail
     public function name()
     {
         return $this->name;
+    }
+    public function category(){
+        return $this->hasMany(Post::class);
     }
 }

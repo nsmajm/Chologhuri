@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Model\UserInfo;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\DataTables;
 
 class UserController extends Controller
 {
@@ -14,9 +18,13 @@ class UserController extends Controller
      */
     public function index()
     {
+
         return view('Admin.users');
     }
-
+    public function showUser(){
+        $user = User::all();
+        return DataTables::of($user)->make(true);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -24,7 +32,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**

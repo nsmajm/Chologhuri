@@ -181,7 +181,7 @@
                 <div class="col-xl-12 pb-70 mb-5">
                     <div class="section-title">
                         <div class="title">
-                            <h2>Fetures</h2>
+                            <h2>Features</h2>
                         </div>
                         <div class="more">
                             <a href="#">More <i class="fas fa-chevron-right"></i></a>
@@ -578,7 +578,33 @@
                 </div>
             </div>
         </div>
+
     </section>
+    <!--pagination -->
+    <div class="container mt-5">
+        <div class="row row justify-content-md-center">
+            <nav aria-label="...">
+                <ul class="pagination">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item ">
+                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                    <li class="page-item"><a class="page-link" href="#">6</a></li>
+                    <li class="page-item"><a class="page-link" href="#">7</a></li>
+                    <li class="page-item"><a class="page-link" href="#">8</a></li>
+                    <li class="page-item"><a class="page-link" href="#">9</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
 
     @section('css')
         <link rel="stylesheet" href="{{asset('css/poststyle.css')}}">

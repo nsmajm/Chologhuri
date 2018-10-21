@@ -1,3 +1,6 @@
+.empty-section{
+    margin-top:8%;
+}
 body{
 
     overflow-x: hidden;
@@ -50,9 +53,9 @@ body{
 }
 .mainContent{
     width: calc(100% - 260px);;
-    margin-left: 265px;
-    margin-top: -50%;
-    background-color: #f2edf3 !important;
+    margin-left: 261px;
+    margin-top: -54%;
+    background-color: #f2f7fb !important;
 }
 .sidebar {
     width: 260px;
@@ -270,3 +273,11 @@ body{
 }
 
 /* style for off-canvas menu*/
+
+.inactive{
+    color:red;
+}
+.add-category {
+    border: 1px solid #efefef;
+    padding: 0px;
+}

@@ -12,9 +12,7 @@
                 <ul class="right-top-menu">
                     <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                     <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-                    <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+
                     @guest
                     <li class="auth"><a href="{{route('login')}}">Login</a></li>
                     <li class="auth"><a href="{{route('register')}}">Register</a></li>
@@ -33,7 +31,14 @@
                             @csrf
                         </form>
                     </li>
+                        @if(Auth::user()->hasRole() == 'admin')
+                        <li class="auth"><a href="{{route('admin.index')}}">Go To Dashboard</a></li>
+                            @elseif(Auth::user()->hasRole() == 'moderator')
+                            <li class="auth"><a href="{{route('moderator.index')}}">Go To Dashboard</a></li>
+                            @elseif(Auth::user()->hasRole() == 'author')
+                            <li class="auth"><a href="{{route('author.index')}}">Go To Dashboard</a></li>
 
+                            @endif
                         @endguest
 
                 </ul>
@@ -67,13 +72,13 @@
 <!--End Top Center Menu -->
 <div class="empty-space"></div>
 <!--Start Top Bottom Menu -->
-<!--
-<section id="top-bottom-menu">
+
+<section id="top-bottom-menu" class="mb-5">
     <div class="top-bottom-menu container-fluid">
         <div class="container main-navbar">
             <div class="row">
                 <nav class="navbar navbar-expand-lg navbar-light ">
-                  
+
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -107,9 +112,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Sylhet</a>
                             </li>
-                           
+
                         </ul>
-                        
+
                     </div>
                 </nav>
             </div>

@@ -1,7 +1,7 @@
 <div class="layout">
     <div id="navbar-top" class="container-fluid" style="padding-left: 0px !important; padding-right: 0px !important;background-color: #fff !important;">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="{{route('admin.index')}}">CholoGhuri</a>
+            <a class="navbar-brand" href="{{route('home.index')}}">CholoGhuri</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -100,8 +100,8 @@
                         </a>
                         <div class="collapse" id="Categories-basic">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">Show Categories</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">Manage Categories</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.category.show')}}">Show Categories</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">Archive Categories</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">Show SubCategories</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">Manage SubCategories</a></li>
 
