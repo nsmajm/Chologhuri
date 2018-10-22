@@ -86,13 +86,21 @@ class categoryController extends Controller
     {
         //
     }
-
+    public function showArchivedCategory(){
+        $category = Category::all()->where('status','=','0');
+        return view('Admin.Categories.archivedCategory')->with('categories',$category);
+    }
     public function deleteCategory(Request $request){
         $category = Category::findOrFail($request->id);
         $category->status = '0';
         $category->save();
     }
-
+    public function restore(Request $request){
+        $category = Category::findOrFail($request->id);
+        $category->status = '1';
+        $category->save();
+        return back();
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -100,8 +108,10 @@ class categoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-
+        $categoryDelete = Category::find($request->id);
+        $categoryDelete->delete();
+        return back();
     }
 }

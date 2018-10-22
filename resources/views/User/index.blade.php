@@ -64,20 +64,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                            <span class="menu-title">Users</span>
-                            <i class="menu-arrow"></i>
-                            <i class="mdi mdi-account menu-icon"></i>
+                        <a class="nav-link" href="#">
+                            <span class="menu-title">Profile</span>
+                            <i class="fa fa-user menu-icon"></i>
                         </a>
-                        <div class="collapse" id="ui-basic">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">Show Users</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">Manage User</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">Change Role</a></li>
-                            </ul>
-                        </div>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#post-basic" aria-expanded="false" aria-controls="post-basic">
                             <span class="menu-title">Posts</span>
@@ -86,39 +77,8 @@
                         </a>
                         <div class="collapse" id="post-basic">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">Show Posts</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{route('author.category.create')}}">Create New Post</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">Manage Posts</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">Archived Posts</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#Categories-basic" aria-expanded="false" aria-controls="post-basic">
-                            <span class="menu-title">Categories</span>
-                            <i class="menu-arrow"></i>
-                            <i class="mdi mdi-tumblr-reblog menu-icon"></i>
-                        </a>
-                        <div class="collapse" id="Categories-basic">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.category.show')}}">Show Categories</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.category.showArchived')}}">Archive Categories</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">Show SubCategories</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">Manage SubCategories</a></li>
-
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#comment-basic" aria-expanded="false" aria-controls="post-basic">
-                            <span class="menu-title">Comments</span>
-                            <i class="menu-arrow"></i>
-                            <i class="mdi mdi-tumblr-reblog menu-icon"></i>
-                        </a>
-                        <div class="collapse" id="comment-basic">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">Show Comments</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">Manage Comments</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">Archived Comments</a></li>
                             </ul>
                         </div>
                     </li>
@@ -130,19 +90,14 @@
                         </a>
                         <div class="collapse" id="Events-basic">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">Show Events</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">Manage Events</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">Archived Events</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">Create Events</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">My Events</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">Joined Events</a></li>
+
                             </ul>
                         </div>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="pages/charts/chartjs.html">
-                            <span class="menu-title">Charts</span>
-                            <i class="mdi mdi-chart-bar menu-icon"></i>
-                        </a>
-                    </li>
 
                 </ul>
             </nav>

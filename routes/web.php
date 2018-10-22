@@ -31,13 +31,18 @@ Route::group(['middleware' => ['auth']],function (){
         Route::post('categories/post','Admin\categoryController@store')->name('admin.category.post');
         Route::post('categories/post','Admin\categoryController@store')->name('admin.category.post');
         Route::post('categories/deleteCategory','Admin\categoryController@deleteCategory')->name('admin.category.deleteCategory');
-
+        Route::post('categories/restoreCategory/{id}','Admin\categoryController@restore')->name('admin.category.restore');
+        Route::post('category/confirm-delete','Admin\categoryController@destroy')->name('admin.category.destroy');
+        Route::get('categories/archived','Admin\categoryController@showArchivedCategory')->name('admin.category.showArchived');
     });
     /*
      * Route Group For Author
      */
     Route::group(['prefix' => 'author' ,'middleware' => ['auth','author','verified']],function (){
-        Route::get('/index',function (){return "Author";})->name('author.index');
+        Route::get('/index','UserController@index')->name('author.index');
+
+        //Post Routes
+        Route::get('post/create','PostController@index')->name('author.category.create');
 
     });
     /*
