@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\Category;
 use App\Model\Post;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
@@ -17,6 +18,8 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
         $category = Category::where('status','=','1')->get();
@@ -50,19 +53,23 @@ class PostController extends Controller
         $post->status = '0';
         $post->category_id = $request->category;
         $post->subcategory_id = $request->subCategory;
-        if($request->has('thumbnail')){}
-        $post->postThumbnail = 'avatar.jpg';
+        if($request->has('thumbnail')){
+            $originalImage= $request->file('thumbnail');
+            $thumbnailImage = Image::make($originalImage);
+            $thumbnailPath = public_path().'/thumbnail/';
+            $originalPath = public_path().'/orginal/';
+            $orginalName = time().$originalImage->getClientOriginalName();
+            $thumbnailImage->save($originalPath.$orginalName);
+            $thumbnailImage->resize(555,279);
+            $thumbnailName = time().$originalImage->getClientOriginalName();
+            $thumbnailImage->save($thumbnailPath.$thumbnailName);
+        }
+        $post->postThumbnail =time().$originalImage->getClientOriginalName();
         $post->save();
         return $post;
 
 
-//        $originalImage= $request->file('thumbnail');
-//        $thumbnailImage = Image::make($originalImage);
-//        $thumbnailPath = public_path().'/thumbnail/';
-//        $originalPath = public_path().'/orginal/';
-//        $thumbnailImage->save($originalPath.time().$originalImage->getClientOriginalName());
-//        $thumbnailImage->resize(555,279);
-//        $thumbnailImage->save($thumbnailPath.time().$originalImage->getClientOriginalName());
+
 
 //        $imagemodel= new ImageModel();
 //        $imagemodel->filename=time().$originalImage->getClientOriginalName();

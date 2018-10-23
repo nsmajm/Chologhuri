@@ -46,6 +46,7 @@
                             <textarea id="postBody" name="postBody"></textarea>
                         </div>
                     <div class="form-group">
+                        <label for="PostThumbNail">Post Thumbnail <i class="bg-dark" style="color: #fff;">(preview Image)</i></label>
                         <input type="file" name="thumbnail" class="form-control">
                     </div>
                 </div>
