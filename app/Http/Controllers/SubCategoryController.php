@@ -44,9 +44,11 @@ class SubCategoryController extends Controller
      * @param  \App\Model\SubCategory  $subCategory
      * @return \Illuminate\Http\Response
      */
-    public function show(SubCategory $subCategory)
+    public function show($id)
     {
-        //
+//        $states = DB::table("state")->where("country_id",$id)->pluck("name","id");
+        $subCategory = SubCategory::where('category_id',$id)->pluck("subCategoryName","id");
+        return $subCategory;
     }
 
     /**

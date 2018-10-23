@@ -43,6 +43,15 @@ Route::group(['middleware' => ['auth']],function (){
 
         //Post Routes
         Route::get('post/create','PostController@index')->name('author.category.create');
+        Route::post('post/create','PostController@store')->name('author.category.store');
+
+
+        // Category
+        Route::get('/post/category', 'CategoryController@index')->name('author.category.get');
+
+        //Sub Category
+        Route::get('subCategory/get/{id}', 'SubCategoryController@show')->name('author.subCategory.get');
+
 
     });
     /*

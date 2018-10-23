@@ -14,7 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $category = Category::all()->where('status','=','1');
+        return response()->json($category);
     }
 
     /**

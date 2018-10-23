@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Category;
 use App\Model\Post;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('User.Author.createPost');
+        $category = Category::where('status','=','1')->get();
+//        return response()->json($category);
+        return view('User.Author.createPost')->with('categories',$category);
     }
 
     /**
@@ -35,7 +38,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request->all();
     }
 
     /**
