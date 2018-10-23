@@ -31,7 +31,7 @@
 
 @section('mainContent')
     <div class="empty-section" ></div>
-    <form method="post" action="{{route('author.category.store')}}" enctype="multipart/form-data">
+    <form method="post" action="{{route('author.post.store')}}" enctype="multipart/form-data">
         @csrf
         <div class="container-fluid">
             <div class="row">
@@ -45,6 +45,9 @@
                         <div class="form-group">
                             <textarea id="postBody" name="postBody"></textarea>
                         </div>
+                    <div class="form-group">
+                        <input type="file" name="thumbnail" class="form-control">
+                    </div>
                 </div>
                 <div class="col-3">
 

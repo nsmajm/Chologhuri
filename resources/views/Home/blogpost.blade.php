@@ -4,7 +4,7 @@
         {{--<div class="posts">--}}
             {{--<div class="row ">--}}
                 {{--<div class="col-4  post-item" >--}}
-                    {{--<img class="images-post" src="http://deasil.moldthemes.com/wp-content/uploads/np_mountain-2376962_1920.jpg" alt="" >--}}
+                    {{--<img class="orginal-post" src="http://deasil.moldthemes.com/wp-content/uploads/np_mountain-2376962_1920.jpg" alt="" >--}}
                     {{--<div class="post-title">--}}
                         {{--<a href="#">This is post title</a>--}}
                     {{--</div>--}}
@@ -20,7 +20,7 @@
                 {{--</div>--}}
                 {{----}}
                 {{--<div class="col-4 post-item" >--}}
-                    {{--<img class="images-post" src="http://deasil.moldthemes.com/wp-content/uploads/np_mountain-2376962_1920.jpg" alt="" >--}}
+                    {{--<img class="orginal-post" src="http://deasil.moldthemes.com/wp-content/uploads/np_mountain-2376962_1920.jpg" alt="" >--}}
                     {{--<div class="post-title">--}}
                         {{--<a href="#">This is post title</a>--}}
                     {{--</div>--}}
@@ -35,7 +35,7 @@
                     {{--</div>--}}
                 {{--</div>--}}
                 {{--<div class="col-4 post-item" >--}}
-                    {{--<img class="images-post" src="http://deasil.moldthemes.com/wp-content/uploads/np_mountain-2376962_1920.jpg" alt="" >--}}
+                    {{--<img class="orginal-post" src="http://deasil.moldthemes.com/wp-content/uploads/np_mountain-2376962_1920.jpg" alt="" >--}}
                     {{--<div class="post-title">--}}
                         {{--<a href="#">This is post title</a>--}}
                     {{--</div>--}}
@@ -50,7 +50,7 @@
                     {{--</div>--}}
                 {{--</div>--}}
                 {{--<div class="col-4  post-item" >--}}
-                        {{--<img class="images-post" src="http://deasil.moldthemes.com/wp-content/uploads/np_mountain-2376962_1920.jpg" alt="" >--}}
+                        {{--<img class="orginal-post" src="http://deasil.moldthemes.com/wp-content/uploads/np_mountain-2376962_1920.jpg" alt="" >--}}
                         {{--<div class="post-title">--}}
                             {{--<a href="#">This is post title</a>--}}
                         {{--</div>--}}
@@ -66,7 +66,7 @@
                     {{--</div>--}}
                     {{----}}
                     {{--<div class="col-4 post-item" >--}}
-                        {{--<img class="images-post" src="http://deasil.moldthemes.com/wp-content/uploads/np_mountain-2376962_1920.jpg" alt="" >--}}
+                        {{--<img class="orginal-post" src="http://deasil.moldthemes.com/wp-content/uploads/np_mountain-2376962_1920.jpg" alt="" >--}}
                         {{--<div class="post-title">--}}
                             {{--<a href="#">This is post title</a>--}}
                         {{--</div>--}}
@@ -81,7 +81,7 @@
                         {{--</div>--}}
                     {{--</div>--}}
                     {{--<div class="col-4 post-item" >--}}
-                        {{--<img class="images-post" src="http://deasil.moldthemes.com/wp-content/uploads/np_mountain-2376962_1920.jpg" alt="" >--}}
+                        {{--<img class="orginal-post" src="http://deasil.moldthemes.com/wp-content/uploads/np_mountain-2376962_1920.jpg" alt="" >--}}
                         {{--<div class="post-title">--}}
                             {{--<a href="#">This is post title</a>--}}
                         {{--</div>--}}
@@ -96,7 +96,7 @@
                         {{--</div>--}}
                     {{--</div>--}}
                     {{--<div class="col-4  post-item" >--}}
-                            {{--<img class="images-post" src="http://deasil.moldthemes.com/wp-content/uploads/np_mountain-2376962_1920.jpg" alt="" >--}}
+                            {{--<img class="orginal-post" src="http://deasil.moldthemes.com/wp-content/uploads/np_mountain-2376962_1920.jpg" alt="" >--}}
                             {{--<div class="post-title">--}}
                                 {{--<a href="#">This is post title</a>--}}
                             {{--</div>--}}
@@ -112,7 +112,7 @@
                         {{--</div>--}}
                         {{----}}
                         {{--<div class="col-4 post-item" >--}}
-                            {{--<img class="images-post" src="http://deasil.moldthemes.com/wp-content/uploads/np_mountain-2376962_1920.jpg" alt="" >--}}
+                            {{--<img class="orginal-post" src="http://deasil.moldthemes.com/wp-content/uploads/np_mountain-2376962_1920.jpg" alt="" >--}}
                             {{--<div class="post-title">--}}
                                 {{--<a href="#">This is post title</a>--}}
                             {{--</div>--}}
@@ -127,7 +127,7 @@
                             {{--</div>--}}
                         {{--</div>--}}
                         {{--<div class="col-4 post-item" >--}}
-                            {{--<img class="images-post" src="http://deasil.moldthemes.com/wp-content/uploads/np_mountain-2376962_1920.jpg" alt="" >--}}
+                            {{--<img class="orginal-post" src="http://deasil.moldthemes.com/wp-content/uploads/np_mountain-2376962_1920.jpg" alt="" >--}}
                             {{--<div class="post-title">--}}
                                 {{--<a href="#">This is post title</a>--}}
                             {{--</div>--}}

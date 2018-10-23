@@ -77,7 +77,7 @@
                         </a>
                         <div class="collapse" id="post-basic">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="{{route('author.category.create')}}">Create New Post</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{route('author.post.create')}}">Create New Post</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">Manage Posts</a></li>
                             </ul>
                         </div>

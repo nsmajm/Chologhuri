@@ -42,8 +42,8 @@ Route::group(['middleware' => ['auth']],function (){
         Route::get('/index','UserController@index')->name('author.index');
 
         //Post Routes
-        Route::get('post/create','PostController@index')->name('author.category.create');
-        Route::post('post/create','PostController@store')->name('author.category.store');
+        Route::get('post/create','PostController@index')->name('author.post.create');
+        Route::post('post/create','PostController@store')->name('author.post.store');
 
 
         // Category
