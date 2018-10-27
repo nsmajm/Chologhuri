@@ -14,10 +14,13 @@
                 </div>
             </div>
             <div class="row">
-                @foreach($blogPosts as $post)
-                <div class="col-xl-6 col-lg-6 mb-30">
+
+                <div class="col-xl-6 col-lg-6">
+                    @foreach($blogPosts as $post)
                     <div class="post-wrapeer">
+
                         <div class="card">
+
                             <div class="post-thumb position-a">
                                 <img class="card-img-top" src="{{asset('thumbnail/')}}/{{$post->postThumbnail}}" alt="post">
                                 <a href="#" class="tag tag-orange">Lifestyle</a>
@@ -26,9 +29,8 @@
                                 <div class="card-body padding-30">
                                     <h3><a href="#">{{$post->postTitle}}</a></h3>
                                     <p>{!!str_limit($post->postBody, 150) !!}
-                                    </p>
                                     <div class="author-info d-flex align-items-center">
-                                        <img src="http://nscreativestudio.com/kanamachi/kanamachi/img/author/author1.png" alt="author">
+                                        <img src="{{$post->postThumbnail}}" alt="author">
                                         <div class="author-name">
                                             <h5><a href="#">Jony Mike</a></h5>
                                             <span>JUNE 20, 2017</span>
@@ -47,7 +49,9 @@
                                     </div>
                                 </div>
                             </div>
+
                         </div>
+
                     </div>
                     @endforeach
                 </div>

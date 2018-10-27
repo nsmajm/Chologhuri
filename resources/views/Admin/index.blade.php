@@ -86,7 +86,7 @@
                         </a>
                         <div class="collapse" id="post-basic">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">Show Posts</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.post.show')}}">Show Posts</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">Manage Posts</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">Archived Posts</a></li>
                             </ul>

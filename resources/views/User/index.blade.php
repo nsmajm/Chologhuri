@@ -58,7 +58,7 @@
                 <ul class="nav">
 
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{route('admin.index')}}">
+                        <a class="nav-link" href="{{route('author.index')}}">
                             <span class="menu-title">Dashboard</span>
                             <i class="mdi mdi-home menu-icon"></i>
                         </a>
@@ -90,7 +90,7 @@
                         </a>
                         <div class="collapse" id="Events-basic">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">Create Events</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{route('author.create.event')}}">Create Events</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">My Events</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">Joined Events</a></li>
 

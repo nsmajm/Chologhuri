@@ -1,4 +1,4 @@
-@extends('Layout.UserLayout')
+@extends('Layout.AdminLayout')
 @section('title')
     Users
 @endsection
@@ -7,56 +7,54 @@
         .table-striped tbody tr:nth-of-type(odd) {
             background-color: #efefef !important;
         }
-
     </style>
-
 
 @endsection
 
 @section('mainContent')
     <div class="empty-section" ></div>
-    <div style="padding:0px 30px 0px 30px;margin-top: -70px;">
-        <div class="pull-right mb-3" style="padding:30px" >
-            <!-- Large modal -->
 
-        </div>
+
+
+    <div style="padding:0px 30px 0px 30px;margin-top: -70px;">
+
         <div class="card col-12">
             <div class="card-body" >
                 <div class="category userdata">
                     @if(count($posts)==null)
-                       <div class="alert alert-danger"> No Post Yet</div>
+                        No Categories Added !Please Add a Category First
                     @else
                         <table class="table table-hover table-bordered">
                             <thead>
                             <tr>
-                                <th width="5%" scope="col">Id</th>
-                                <th width="40%" scope="col">Post Title</th>
-                                <th width="15%" scope="col">Image</th>
-                                <th width="10%" scope="col">Status</th>
-                                <th width="15%" scope="col">Create Date</th>
+                                <th width="10%" scope="col">Category Id</th>
+                                <th width="40%" scope="col">Category Name</th>
+                                <th width="20%" scope="col">Status</th>
+                                <th width="10%" scope="col">Added By</th>
                                 <th width="20%" scope="col">Action</th>
-
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($posts as $post)
+                            @foreach($posts as $category)
                                 <tr>
 
-                                    <td>{{$post->id}}</td>
-                                    <td>{{$post->postTitle}}</td>
-                                    <td><img class="img-thumbnail" src="{{asset('thumbnail/')}}/{{$post->postThumbnail}}" alt=""></td>
-                                    @if ($post->status=='1')
-                                        <td><button type="button" class="btn btn-success" disabled><i class="fa fa-check"></i></button></td>
+                                    <td>{{$category->id}}</td>
+                                    <td>{{$category->postTitle}}</td>
+                                    @if ($category->status=='1')
+                                        <td>Active</td>
                                     @else
-                                        <td><button type="button" class="btn btn-danger" disabled><i class="fa fa-remove"></i></button></td>
+                                        <td class="inactive">In Active</td>
                                     @endif
-                                    <td>{{$post->created_at}}</td>
+                                    {{--<td>{{--}}
+                            {{--\App\User::where('users.id','=',$posts->id)->first()->name--}}
+                            {{--}}</td>--}}
 
-                                    <td width="20%">
+                                    <td width="8%">
                                         <a class="btn btn-info" href="#"><i class="fa fa-edit"></i></a>
                                         <button type="button" id="viewid" class="btn btn-danger viewuser ml-4" data-toggle="modal" data-target="#exampleModal" data-dismiss="modal">
                                             <i class="fa fa-trash"></i>
-                                            <input type="hidden" id="itemid" value="{{$post->id}}">
+                                            <input type="hidden" id="itemid" value="{{$category->id}}">
 
                                         </button>
 
@@ -96,6 +94,8 @@
         </div>
     </div>
 @endsection
+
+
 @section('js')
     <script>
         $(document).ready(function(){
@@ -107,11 +107,10 @@
             });
             $('#delete').click(function(event){
                 var id =$('#id').val();
-                $.post('{!! route('author.deletePost') !!}',
+                $.post('{!! route('admin.category.deleteCategory') !!}',
                     {'id':id,'_token':$('input[name=_token]').val()},function(data){
                         $('.userdata').load(location.href +' .userdata');
                         toastr.error("Category Moved To Archived");
-                        console.log('post Moved To Trash')
                     });
             });
         });

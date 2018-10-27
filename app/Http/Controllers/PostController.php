@@ -60,7 +60,7 @@ class PostController extends Controller
             $originalPath = public_path().'/orginal/';
             $orginalName = time().$originalImage->getClientOriginalName();
             $thumbnailImage->save($originalPath.$orginalName);
-            $thumbnailImage->resize(555,279);
+            $thumbnailImage->resize(538,279);
             $thumbnailName = time().$originalImage->getClientOriginalName();
             $thumbnailImage->save($thumbnailPath.$thumbnailName);
         }

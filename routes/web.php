@@ -29,22 +29,29 @@ Route::group(['middleware' => ['auth']],function (){
         //Route For Categories
         Route::get('categories/show','Admin\categoryController@index')->name('admin.category.show');
         Route::post('categories/post','Admin\categoryController@store')->name('admin.category.post');
-        Route::post('categories/post','Admin\categoryController@store')->name('admin.category.post');
         Route::post('categories/deleteCategory','Admin\categoryController@deleteCategory')->name('admin.category.deleteCategory');
         Route::post('categories/restoreCategory/{id}','Admin\categoryController@restore')->name('admin.category.restore');
         Route::post('category/confirm-delete','Admin\categoryController@destroy')->name('admin.category.destroy');
         Route::get('categories/archived','Admin\categoryController@showArchivedCategory')->name('admin.category.showArchived');
+
+        //Post
+
+        Route::get('post/show','Admin\PostController@index')->name('admin.post.show');
+        Route::post('post/show','Admin\PostController@showPost')->name('admin.post.showPost');
+
+
     });
     /*
      * Route Group For Author
      */
     Route::group(['prefix' => 'author' ,'middleware' => ['auth','author','verified']],function (){
-        Route::get('/index','UserController@index')->name('author.index');
+        Route::get('/index','AuthorController@authorIndex')->name('author.index');
 
         //Post Routes
         Route::get('post/create','PostController@index')->name('author.post.create');
         Route::post('post/create','PostController@store')->name('author.post.store');
         Route::get('post/manage','AuthorController@index')->name('author.managePost');
+        Route::post('/post/delete/author','AuthorController@deletePost')->name('author.deletePost');
 
 
         // Category
@@ -52,6 +59,13 @@ Route::group(['middleware' => ['auth']],function (){
 
         //Sub Category
         Route::get('subCategory/get/{id}', 'SubCategoryController@show')->name('author.subCategory.get');
+
+        //Event
+        Route::get('/event/create','EventController@index')->name('author.create.event');
+//        Route::get('/test','EventController@test')->name('author.create.test');
+        Route::post('/event/create/admin','EventController@createEvent')->name('author.host.event');
+        Route::get('/event/manage/','EventController@getEvent')->name('author.get.event');
+
 
 
     });

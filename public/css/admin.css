@@ -281,3 +281,12 @@ body{
     border: 1px solid #efefef;
     padding: 0px;
 }
+.dashboard-icon{
+    font-size: 45px;
+
+}
+
+.text-dashboard{
+    padding: 1px 16px;
+    border-radius: 50px;
+}

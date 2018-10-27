@@ -17,7 +17,7 @@ class BlogPostProvider extends ServiceProvider
     {
 
         View::composer('Home.blogpost', function ($view) {
-            $blogPost = Post::where('status','1')->get();
+            $blogPost = Post::where('status','1')->latest()->take(1)->get();
             $view->with('blogPosts', $blogPost);
         });
     }
