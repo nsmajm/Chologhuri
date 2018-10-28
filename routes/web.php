@@ -18,6 +18,8 @@ Route::group(['middleware' => ['auth']],function (){
         $user = \App\User::with('userinfos')->where('users.id','=',Auth::id())->first();
         return $user;
     });
+    Route::get('public-profile/{username}','UserController@showProfile')->name('user.profile.show');
+
     /*
     * Route group for Admin
     */
@@ -52,7 +54,8 @@ Route::group(['middleware' => ['auth']],function (){
         Route::post('post/create','PostController@store')->name('author.post.store');
         Route::get('post/manage','AuthorController@index')->name('author.managePost');
         Route::post('/post/delete/author','AuthorController@deletePost')->name('author.deletePost');
-
+        Route::get('profile/{id}','AuthorController@showProfile')->name('author.profile.show');
+        Route::post('/profile/update','AuthorController@updateProfile')->name('author.update.profile');
 
         // Category
         Route::get('/post/category', 'CategoryController@index')->name('author.category.get');

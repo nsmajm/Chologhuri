@@ -110,7 +110,7 @@
                 $.post('{!! route('author.deletePost') !!}',
                     {'id':id,'_token':$('input[name=_token]').val()},function(data){
                         $('.userdata').load(location.href +' .userdata');
-                        toastr.error("Category Moved To Archived");
+                        toastr.error("Post Deleted");
                         console.log('post Moved To Trash')
                     });
             });

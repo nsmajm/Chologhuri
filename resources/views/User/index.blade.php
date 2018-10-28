@@ -64,7 +64,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route('author.profile.show',[Auth::id()])}}">
                             <span class="menu-title">Profile</span>
                             <i class="fa fa-user menu-icon"></i>
                         </a>

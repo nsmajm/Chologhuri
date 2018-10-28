@@ -2,14 +2,6 @@
 @section('title')
     Users
 @endsection
-@section('css')
-    <style>
-        .table-striped tbody tr:nth-of-type(odd) {
-            background-color: #efefef !important;
-        }
-    </style>
-
-@endsection
 
 @section('mainContent')
     <div class="empty-section" ></div>
@@ -59,34 +51,7 @@
             </div>
 
         </div>
-    <div class="container mt-4">
-        <div class="row">
-            <div class="col-6">
-                <div class="card">
-                    <div class="card-header">Latest Post</div>
-                    <div class="card-body">
-                        <h6><a href="#">{{$latestPost->postTitle}}</a></h6>
-                        <p>{!! str_limit($latestPost->postBody,100) !!}</p>
-                        <div class="card-footer">
-                            <a href="#">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="card">
-                    <div class="card-header">My Comments</div>
-                    <div class="card-body">
-                        <h6><a href="#">{{$latestPost->postTitle}}</a></h6>
-                        <p>{!! str_limit($latestPost->postBody,100) !!}</p>
-                        <div class="card-footer">
-                            <a href="#">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <div class="container mt-5">
         <div class="row">
             <div class="col-12">
@@ -128,9 +93,34 @@
             </div>
         </div>
     </div>
+   <div class="container mt-4">
+       <div class="row">
+           <div class="col-6">
+               <div class="card">
+                   <div class="card-header">Posts</div>
+                   <div class="card-body">
+                       @if ($latestPost==null)
+                           <h3>No Post Yet</h3>
+                           @else
+                           <h5 class="post-title"><a href="#">{{$latestPost->postTitle}}</a></h5>
+                           <p class="post-title">{!! $latestPost->postBody !!}</p>
+                       @endif
+
+                   </div>
+
+               </div>
+           </div>
+           <div class="col-6">
+               <div class="card">
+                   <div class="card-header">Comments</div>
+                   <div class="card-body">
+                       Thisi is body
+                   </div>
+
+               </div>
+           </div>
+       </div>
+   </div>
 @endsection
 
 
-@section('js')
-
-@endsection

@@ -92,6 +92,7 @@
 
     </script>
     <script type="text/javascript" src="{{asset('./js.app.js')}}"></script>
+    <script src="https://momentjs.com/downloads/moment.js"></script>
   </body>
 </html>
 

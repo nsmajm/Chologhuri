@@ -33,7 +33,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'password', 'remember_token',
     ];
     public function userinfos(){
-        return $this->hasMany(UserInfo::class);
+        return $this->hasOne(UserInfo::class);
     }
     public function role(){
         return $this->hasMany(Role::class);

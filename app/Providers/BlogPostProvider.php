@@ -17,8 +17,10 @@ class BlogPostProvider extends ServiceProvider
     {
 
         View::composer('Home.blogpost', function ($view) {
-            $blogPost = Post::where('status','1')->latest()->take(1)->get();
-            $view->with('blogPosts', $blogPost);
+            $blogPostfirst = Post::with('users')->where('status','1')->latest()->take(1)->get();
+            $skipFirstTakeseconed = Post::with('users')->where('status','1')->orderBy('created_at', 'desc')->skip(1)->take(1)->get();
+            $takeThird = Post::with('users')->where('status','1')->orderBy('created_at', 'desc')->skip(2)->take(1)->get();
+            $view->with('blogPostfirst', $blogPostfirst)->with('takeSecond',$skipFirstTakeseconed)->with('takeThird',$takeThird);
         });
     }
 
