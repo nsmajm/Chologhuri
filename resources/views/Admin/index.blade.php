@@ -102,8 +102,8 @@
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" href="{{route('admin.category.show')}}">Show Categories</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="{{route('admin.category.showArchived')}}">Archive Categories</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">Show SubCategories</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">Manage SubCategories</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.subcategory.show')}}">Show SubCategories</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.subcategory.showArchived')}}">Archived SubCategories</a></li>
 
                             </ul>
                         </div>

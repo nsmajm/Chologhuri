@@ -11,6 +11,6 @@ class SubCategory extends Model
    }
 
    public function Category(){
-       $this->belongsTo(Category::class);
+       $this->hasMany(Category::class);
    }
 }

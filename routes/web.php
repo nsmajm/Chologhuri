@@ -13,6 +13,7 @@
 Auth::routes(['verify' => true]);
 
 Route::get('/','HomeController@index' )->name('home.index');
+Route::get('/post/{slug}','PostController@showSinglePost')->name('singlePost.show');
 Route::group(['middleware' => ['auth']],function (){
     Route::get('user',function (){
         $user = \App\User::with('userinfos')->where('users.id','=',Auth::id())->first();
@@ -35,6 +36,15 @@ Route::group(['middleware' => ['auth']],function (){
         Route::post('categories/restoreCategory/{id}','Admin\categoryController@restore')->name('admin.category.restore');
         Route::post('category/confirm-delete','Admin\categoryController@destroy')->name('admin.category.destroy');
         Route::get('categories/archived','Admin\categoryController@showArchivedCategory')->name('admin.category.showArchived');
+
+
+        //Route For Sub Categories
+        Route::get('sub/categories/show','Admin\SubCategoryController@index')->name('admin.subcategory.show');
+        Route::post('sub/categories/post','Admin\SubCategoryController@store')->name('admin.subcategory.post');
+        Route::post('sub/categories/deleteCategory','Admin\SubCategoryController@deleteCategory')->name('admin.subcategory.deleteCategory');
+        Route::post('sub/categories/restoreCategory/{id}','Admin\SubCategoryController@restore')->name('admin.subcategory.restore');
+        Route::post('sub/category/confirm-delete','Admin\SubCategoryController@destroy')->name('admin.subcategory.destroy');
+        Route::get('sub/categories/archived','Admin\SubCategoryController@showArchivedCategory')->name('admin.subcategory.showArchived');
 
         //Post
 

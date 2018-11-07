@@ -66,7 +66,8 @@ class PostController extends Controller
         }
         $post->postThumbnail =time().$originalImage->getClientOriginalName();
         $post->save();
-        return $post;
+        return back()->with('success', 'Your Post has been posted..waiting for admin approval');
+//        return $post;
 
 
 
@@ -75,8 +76,8 @@ class PostController extends Controller
 //        $imagemodel->filename=time().$originalImage->getClientOriginalName();
 //        $imagemodel->save();
 
-//        return back()->with('success', 'Your orginal has been successfully Upload');
-        return $request->all();
+
+
     }
 
     /**
@@ -85,9 +86,10 @@ class PostController extends Controller
      * @param  \App\Model\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function showSinglePost($slug)
     {
-        //
+       $singlePost = Post::where('slug',$slug)->first();
+       return view('Home.singlePost')->with('singlePost',$singlePost);
     }
 
     /**

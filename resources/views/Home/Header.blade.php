@@ -2,13 +2,13 @@
 <section id="top-menu">
     <div class="container-fluid top-nav-menu">
         <div class="row">
-            <div class="col-sm-6 col-md-6">
+            <div class="col-sm-5 col-md-5">
                 <ul class="left-top-menu">
                     <li><a href="#">Privacy Policy</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
             </div>
-            <div class="col-sm-6  col-md-6">
+            <div class="col-sm-7  col-md-7">
                 <ul class="right-top-menu">
                     <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                     <li><a href="#"><i class="fab fa-twitter"></i></a></li>
@@ -88,30 +88,22 @@
                             <li class="nav-item active">
                                 <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Dhaka</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Rajshahi</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Chittagong</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Barishal</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Khulna</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Mymensingh</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Rangpur</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Sylhet</a>
-                            </li>
+                            @foreach($navCategories as $navMenu)
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="{{route('home.index')}}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        {{$navMenu->categoryName}}
+                                    </a>
+
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        @foreach(\App\Model\SubCategory::all()->where('category_id',$navMenu->id) as $subCat)
+                                                <a class="dropdown-item" href="#">{{$subCat->subCategoryName}}</a>
+                                                <div class="dropdown-divider"></div>
+                                        @endforeach
+                                    </div>
+
+                                </li>
+
+                            @endforeach
 
                         </ul>
 
