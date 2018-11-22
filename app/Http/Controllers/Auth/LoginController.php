@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
@@ -39,6 +40,12 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+    protected function credentials(\Illuminate\Http\Request $request)
+    {
+        //return $request->only($this->username(), 'password');
+        Session::flash('message','You Have Some Issue ! Contact With The Administrator ');
+        return ['email' => $request->{$this->username()}, 'password' => $request->password, 'status' => 1];
     }
 
     /**
@@ -82,7 +89,10 @@ class LoginController extends Controller
         $findUser = User::where('email',$socialUser->email)->first();
 
         if($findUser){
-
+           if($findUser->status=='2'){
+               Session::flash('message','Your Account Has Been Blocked Contact to the Admin');
+               return redirect()->route('login');
+           }
             Auth::login($findUser);
           //  return $findUser->socialUser;
 

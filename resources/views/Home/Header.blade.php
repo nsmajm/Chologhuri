@@ -73,46 +73,46 @@
 <div class="empty-space"></div>
 <!--Start Top Bottom Menu -->
 
-<section id="top-bottom-menu" class="mb-5">
-    <div class="top-bottom-menu container-fluid">
-        <div class="container main-navbar">
-            <div class="row">
-                <nav class="navbar navbar-expand-lg navbar-light ">
+{{--<section id="top-bottom-menu" class="mb-5">--}}
+    {{--<div class="top-bottom-menu container-fluid">--}}
+        {{--<div class="container main-navbar">--}}
+            {{--<div class="row">--}}
+                {{--<nav class="navbar navbar-expand-lg navbar-light ">--}}
 
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+                    {{--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">--}}
+                        {{--<span class="navbar-toggler-icon"></span>--}}
+                    {{--</button>--}}
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                            </li>
-                            @foreach($navCategories as $navMenu)
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="{{route('home.index')}}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        {{$navMenu->categoryName}}
-                                    </a>
+                    {{--<div class="collapse navbar-collapse" id="navbarSupportedContent">--}}
+                        {{--<ul class="navbar-nav mr-auto">--}}
+                            {{--<li class="nav-item active">--}}
+                                {{--<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>--}}
+                            {{--</li>--}}
+                            {{--@foreach($navCategories as $navMenu)--}}
+                                {{--<li class="nav-item dropdown">--}}
+                                    {{--<a class="nav-link dropdown-toggle" href="{{route('home.index')}}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
+                                        {{--{{$navMenu->categoryName}}--}}
+                                    {{--</a>--}}
 
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        @foreach(\App\Model\SubCategory::all()->where('category_id',$navMenu->id) as $subCat)
-                                                <a class="dropdown-item" href="#">{{$subCat->subCategoryName}}</a>
-                                                <div class="dropdown-divider"></div>
-                                        @endforeach
-                                    </div>
+                                    {{--<div class="dropdown-menu" aria-labelledby="navbarDropdown">--}}
+                                        {{--@foreach(\App\Model\SubCategory::all()->where('category_id',$navMenu->id) as $subCat)--}}
+                                                {{--<a class="dropdown-item" href="#">{{$subCat->subCategoryName}}</a>--}}
+                                                {{--<div class="dropdown-divider"></div>--}}
+                                        {{--@endforeach--}}
+                                    {{--</div>--}}
 
-                                </li>
+                                {{--</li>--}}
 
-                            @endforeach
+                            {{--@endforeach--}}
 
-                        </ul>
+                        {{--</ul>--}}
 
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </div>
-</section>
+                    {{--</div>--}}
+                {{--</nav>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+{{--</section>--}}
 <!--End Top Bottom Menu -->
 
 <!-- End Comment-->

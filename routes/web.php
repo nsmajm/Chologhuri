@@ -14,20 +14,25 @@ Auth::routes(['verify' => true]);
 
 Route::get('/','HomeController@index' )->name('home.index');
 Route::get('/post/{slug}','PostController@showSinglePost')->name('singlePost.show');
+Route::get('/contact','SupportController@index')->name('support.index');
+Route::post('/contact','SupportController@postSupport')->name('support.post');
+
 Route::group(['middleware' => ['auth']],function (){
     Route::get('user',function (){
         $user = \App\User::with('userinfos')->where('users.id','=',Auth::id())->first();
         return $user;
     });
     Route::get('public-profile/{username}','UserController@showProfile')->name('user.profile.show');
-
+    Route::post('/comment/store','CommentController@store')->name('comment.store');
     /*
     * Route group for Admin
     */
     Route::group([ 'prefix' => 'admin' ,'middleware' => ['auth','admin']],function (){
         Route::get('dashboard','Admin\AdminController@index')->name('admin.index');
-        Route::get('users','Admin\UserController@index')->name('admin.user.index');
-        Route::post('users','Admin\UserController@showUser')->name('admin.user.showUser');
+        Route::get('/users','Admin\UserController@showUser')->name('admin.user.index');
+        Route::post('/users-show-form','Admin\UserController@showEditForm')->name('admin.user.showForm');
+        Route::post('/users-update','Admin\UserController@updateUser')->name('admin.userUpdate');
+        Route::get('/users-others','Admin\UserController@showOtherUser')->name('admin.user.otherUsers');
 
         //Route For Categories
         Route::get('categories/show','Admin\categoryController@index')->name('admin.category.show');
@@ -49,7 +54,24 @@ Route::group(['middleware' => ['auth']],function (){
         //Post
 
         Route::get('post/show','Admin\PostController@index')->name('admin.post.show');
+        Route::get('post/pending-post-show','Admin\PostController@pendingPost')->name('admin.post.pendingPost');
+        Route::get('post/blocked-post-show','Admin\PostController@blockedPost')->name('admin.post.blockedPost');
         Route::post('post/show','Admin\PostController@showPost')->name('admin.post.showPost');
+        Route::post('post/edit-post','Admin\PostController@editPostForm')->name('admin.post.editPostForm');
+
+        Route::post('post/update-post','Admin\PostController@updatePost')->name('admin.post.updatePost');
+
+        Route::post('post/view-post','Admin\PostController@viewPost')->name('admin.post.viewPost');
+        Route::post('post/delete-post','Admin\PostController@deletePost')->name('admin.post.deletePost');
+
+
+//Comments
+        Route::get('comment/show','Admin\PostController@showComments')->name('admin.showComments');
+        Route::get('comment/show-blocked','Admin\PostController@showBlockedComments')->name('admin.showBlockComments');
+        Route::post('comment/delete','Admin\PostController@deleteComments')->name('admin.deleteComments');
+        Route::post('comment/edit','Admin\PostController@updateComment')->name('admin.comment.update');
+        Route::post('comment/edit-form','Admin\PostController@editCommentForm')->name('admin.editCommentForm');
+
 
 
     });

@@ -1,129 +1,205 @@
-@extends('Layout.AdminLayout')
-@section('title')
-    Users
-@endsection
-@section('css')
-    <style>
-        .table-striped tbody tr:nth-of-type(odd) {
-            background-color: #efefef !important;
-        }
-    </style>
-
-@endsection
-
-@section('mainContent')
-    <div class="empty-section" ></div>
-
-
-
-    <div style="padding:0px 30px 0px 30px;margin-top: -70px;">
-
-        <div class="card col-12">
-            <div class="card-body" >
-                <div class="category userdata">
-                    @if(count($posts)==null)
-                        No Categories Added !Please Add a Category First
-                    @else
-                        <table class="table table-hover table-bordered">
-                            <thead>
-                            <tr>
-                                <th width="10%" scope="col">Category Id</th>
-                                <th width="40%" scope="col">Category Name</th>
-                                <th width="20%" scope="col">Status</th>
-                                <th width="10%" scope="col">Added By</th>
-                                <th width="20%" scope="col">Action</th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($posts as $category)
+@extends('layouts.AdminLayout')
+@section('content')
+    <div class="content-wrapper">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Users</h4>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="table-responsive">
+                            <table id="userTable" class="table table-bordered table-hover">
+                                <thead>
                                 <tr>
+                                    <th width="25%">Post Title</th>
+                                    <th width="20%">Slug</th>
+                                    <th width="5%">status</th>
+                                    <th width="10%">Category</th>
+                                    <th width="10%">Post Create</th>
+                                    <th width="20%">Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($posts as $post)
+                                    <tr>
+                                        <td>{{$post->postTitle}}</td>
+                                        <td>{{$post->slug}}</td>
+                                        <td>
+                                            @if ($post->status=='1')
+                                                <div class="badge badge-success">Active</div>
+                                                @elseif ($post->status=='0')
 
-                                    <td>{{$category->id}}</td>
-                                    <td>{{$category->postTitle}}</td>
-                                    @if ($category->status=='1')
-                                        <td>Active</td>
-                                    @else
-                                        <td class="inactive">In Active</td>
-                                    @endif
-                                    {{--<td>{{--}}
-                            {{--\App\User::where('users.id','=',$posts->id)->first()->name--}}
-                            {{--}}</td>--}}
+                                                <div class="badge badge-danger">Blocked</div>
+                                                @else
+                                                <div class="badge badge-warning">Pending</div>
+                                            @endif
+                                        </td>
+                                        <td>{{\App\Http\Controllers\CategoryController::getCategoryName($post->category_id)}}</td>
+                                        <td>{{$post->created_at}}</td>
 
-                                    <td width="8%">
-                                        <a class="btn btn-info" href="#"><i class="fa fa-edit"></i></a>
-                                        <button type="button" id="viewid" class="btn btn-danger viewuser ml-4" data-toggle="modal" data-target="#exampleModal" data-dismiss="modal">
-                                            <i class="fa fa-trash"></i>
-                                            <input type="hidden" id="itemid" value="{{$category->id}}">
 
-                                        </button>
+                                        <td>
+                                            <button data-toggle="modal" data-target="editUser" type="button" onclick="editPost(this)"  data-panel-id="{{$post->id}}"
+                                                    class="btn btn-sm btn-primary btn-icon btnEdit" ><i class="fa fa-edit"></i>
+                                            </button>
 
-                                        <!--Delete Modal -->
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header bg-danger">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Delete Categories</h5>
+                                            <button type="button" class="btn btn-sm btn-primary  btn-icon" onclick="deletePost(this)" data-panel-id="{{$post->id}}">
 
-                                                        <button type="button" class="close btn btn-default" data-dismiss="modal"
-                                                                aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <h4 class="text-center" style="color: #dc3545;">Are You Sure!</h4>
-                                                        <input type="hidden" id="id">
+                                                <i class="fa fa-trash"></i>
+                                            </button>
+                                            <button data-toggle="modal" data-target="viewPost" type="button" onclick="viewPost(this)"  data-panel-id="{{$post->id}}"
+                                                    class="btn btn-sm btn-primary btn-icon btnEdit" ><i class="fa fa-eye"></i>
+                                            </button>
+                                            <!-- View Model -->
+                                            <div class="modal fade" id="viewPost" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
+                                                <div class="modal-dialog modal-lg" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">×</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body" id="viewModelBody">
 
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button id="delete" type="button" class="btn btn-danger ml-auto" data-dismiss="modal">delete</button>
-
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-primary pad-change" data-dismiss="modal">Close</button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
 
-                        </table>
-                    @endif
+
+                                            <!--Edit Modal -->
+                                            <div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Post</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body" id="editUserBody">
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
 @endsection
 
-
 @section('js')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
     <script>
-        $(document).ready(function(){
-            $( '.viewuser').each(function() {
-                $(document).on('click','.viewuser',function(event){
+        $(document).ready( function () {
+            (function($) {
+                'use strict';
+                $(function() {
+                    $('#userTable').DataTable({
+                        "aLengthMenu": [
+                            [5, 10, 15, -1],
+                            [5, 10, 15, "All"]
+                        ],
+                        "iDisplayLength": 10,
+
+                        "language": {
+                            search: ""
+                        }
+                    });
+                    $('#order-listing').each(function() {
+                        var datatable = $(this);
+                        // SEARCH - Add the placeholder for Search and Turn this into in-line form control
+                        var search_input = datatable.closest('.dataTables_wrapper').find('div[id$=_filter] input');
+                        search_input.attr('placeholder', 'Search');
+                        search_input.removeClass('form-control-sm');
+                        // LENGTH - Inline-Form control
+                        var length_sel = datatable.closest('.dataTables_wrapper').find('div[id$=_length] select');
+                        length_sel.removeClass('form-control-sm');
+                    });
+                });
+            })(jQuery);
+            $( '.btnEdit').each(function() {
+                $(document).on('click','.btnEdit',function(event){
                     var id = $(this).find('#itemid').val();
+                    console.log(id);
                     $('#id').val(id);
                 })
             });
-            $('#delete').click(function(event){
-                var id =$('#id').val();
-                $.post('{!! route('admin.category.deleteCategory') !!}',
-                    {'id':id,'_token':$('input[name=_token]').val()},function(data){
-                        $('.userdata').load(location.href +' .userdata');
-                        toastr.error("Category Moved To Archived");
-                    });
+        } );
+        function editPost(x) {
+            var id=$(x).data('panel-id');
+            $.ajax({
+                type: 'POST',
+                url: "{!! route('admin.post.editPostForm') !!}",
+                cache: false,
+                data: {_token: "{{csrf_token()}}",'id': id},
+                success: function (data) {
+//                    console.log(data);
+                    $('#editUserBody').html(data);
+                    $('#editUser').modal();
+                }
             });
-        });
-        @if(Session::has('success'))
-        toastr.success("Category Added");
-        @endif
-        @if ($errors->any())
+        }
 
-        @foreach ($errors->all() as $error)
-        toastr.error("{!! $error !!}.Please Restore It from Archived Menu");
-        @endforeach
+        function viewPost(x) {
+            var id=$(x).data('panel-id');
+            $.ajax({
+                type: 'POST',
+                url: "{!! route('admin.post.viewPost') !!}",
+                cache: false,
+                data: {_token: "{{csrf_token()}}",'id': id},
+                success: function (data) {
+//                    console.log(data);
+                    $('#viewModelBody').html(data);
+                    $('#viewPost').modal();
+                }
+            });
+        }
+        function deletePost(x) {
+            var id=$(x).data('panel-id');
+            $.confirm({
+                title: 'Are You Sure!',
+                content: 'Delete The Post',
+                buttons: {
+                    confirm: function () {
+                            $.ajax({
+                                type: 'POST',
+                                url: "{!! route('admin.post.deletePost') !!}",
+                                cache: false,
+                                data: {_token: "{{csrf_token()}}",'id': id},
+                                success: function (data) {
+                                    $.alert('Post Deleted Successfully');
+                                    location.reload();
+                                }
+                            })
 
-        @endif
+                    },
+                    cancel: function () {
+                        $.alert('Canceled!');
+                    }
 
+                }
+            });
+        }
     </script>
+
+
+
 @endsection

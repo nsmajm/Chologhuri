@@ -14,9 +14,13 @@
                 <div class="card-header">{{ __('Login To Cholo Ghuri') }}</div>
 
                 <div class="card-body">
+                    @if (session()->has('message'))
+                    <div class="alert alert-danger">
 
+                            {{session()->get('message')}}
 
-
+                    </div>
+                    @endif
                     <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
                         @csrf
 

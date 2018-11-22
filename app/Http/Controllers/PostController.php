@@ -50,7 +50,7 @@ class PostController extends Controller
         $post->postTitle = $request->postTitle;
         $post->slug = str_slug($post->postTitle);
         $post->postBody = $request->postBody;
-        $post->status = '0';
+        $post->status = '2';
         $post->category_id = $request->category;
         $post->subcategory_id = $request->subCategory;
         if($request->has('thumbnail')){

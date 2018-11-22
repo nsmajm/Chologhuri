@@ -11,4 +11,8 @@ class UserController extends Controller
         $user = User::findOrfail($id);
         return view('');
     }
+    public static function getUserName($id){
+        $user = User::where('id',$id)->first()->name;
+        return $user;
+    }
 }

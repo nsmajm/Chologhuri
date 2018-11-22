@@ -42,8 +42,14 @@
                                 </div>
                                 <div class="post-meta">
                                     <div class="left f-left">
-                                        <a href="#"><span class="lnr lnr-heart"></span>110</a>
-                                        <a href="#"><span class="lnr lnr-bubble"></span>77</a>
+                                        <form action="#" method="post">
+                                            <input type="hidden" name="reaction">
+                                            <button style="background: none;color: inherit;border: none;padding: 0;font: inherit;cursor: pointer;outline: inherit;"
+                                                    type="submit"><span class="lnr lnr-heart"> </span></button>110
+                                        </form>
+                                        <a href="#"><span class="lnr lnr-bubble"></span>
+                                            {{\App\Http\Controllers\CommentController::countComments($post->id)}}
+                                        </a>
                                         <a href="#"><span class="lnr lnr-eye"></span>300</a>
                                     </div>
                                     <div class="right f-right">
@@ -74,7 +80,7 @@
                                             {{\App\Http\Controllers\CategoryController::getCategoryName($takeOne->category_id)}}
                                         </a>
                                         <h3 class="mb-10"><a href="{{route('singlePost.show',[$takeOne->slug])}}">{{$takeOne->postTitle}}</a></h3>
-                                        <p>{!!str_limit($takeOne->postBody, 150) !!}
+
                                         <div class="author-info d-flex align-items-center sm-margin">
                                             <img src="{{asset('profile/')}}/{{\App\Model\UserInfo::where('user_id',$post->user_id)->first()->profileImage}}"
                                                  width="69px" height="69px" style="border-radius: 69px" alt="author">
@@ -86,8 +92,14 @@
                                     </div>
                                     <div class="post-meta">
                                         <div class="left f-left">
-                                            <a href="#"><span class="lnr lnr-heart"></span>110</a>
-                                            <a href="#"><span class="lnr lnr-bubble"></span>77</a>
+                                            <form action="#" method="post">
+                                                <input type="hidden" name="reaction">
+                                                <button style="background: none;color: inherit;border: none;padding: 0;font: inherit;cursor: pointer;outline: inherit;"
+                                                        type="submit"><span class="lnr lnr-heart"> </span></button>110
+                                            </form>
+                                            <a href="#"><span class="lnr lnr-bubble"></span>
+                                                {{\App\Http\Controllers\CommentController::countComments($takeOne->id)}}
+                                            </a>
                                             <a href="#"><span class="lnr lnr-eye"></span>300</a>
                                         </div>
                                         <div class="right f-right">
@@ -115,7 +127,7 @@
                                             {{\App\Http\Controllers\CategoryController::getCategoryName($thirdPost->category_id)}}
                                         </a>
                                         <h3 class="mb-10"><a href="{{route('singlePost.show',[$thirdPost->slug])}}">{{$thirdPost->postTitle}}}</a></h3>
-                                        <p>{!!str_limit($takeOne->postBody, 150) !!}
+
                                         <div class="author-info d-flex align-items-center sm-margin">
                                             <img src="{{asset('profile/')}}/{{\App\Model\UserInfo::where('user_id',$post->user_id)->first()->profileImage}}"
                                                  width="69px" height="69px" style="border-radius: 69px" alt="author">
@@ -127,8 +139,14 @@
                                     </div>
                                     <div class="post-meta">
                                         <div class="left f-left">
-                                            <a href="#"><span class="lnr lnr-heart"></span>110</a>
-                                            <a href="#"><span class="lnr lnr-bubble"></span>77</a>
+                                            <form action="#" method="post">
+                                                <input type="hidden" name="reaction">
+                                                <button style="background: none;color: inherit;border: none;padding: 0;font: inherit;cursor: pointer;outline: inherit;"
+                                                        type="submit"><span class="lnr lnr-heart"> </span></button>110
+                                            </form>
+                                            <a href="#"><span class="lnr lnr-bubble"></span>
+                                                {{\App\Http\Controllers\CommentController::countComments($thirdPost->id)}}
+                                            </a>
                                             <a href="#"><span class="lnr lnr-eye"></span>300</a>
                                         </div>
                                         <div class="right f-right">
@@ -186,8 +204,16 @@
                                 </div>
                                 <div class="post-meta">
                                     <div class="left f-left">
-                                        <a href="#"><span class="lnr lnr-heart"></span>110</a>
-                                        <a href="#"><span class="lnr lnr-bubble"></span>77</a>
+                                                <form action="#" method="post">
+                                                    <input type="hidden" name="reaction">
+                                                    <button style="background: none;color: inherit;border: none;padding: 0;font: inherit;cursor: pointer;outline: inherit;"
+                                                            type="submit"><span class="lnr lnr-heart"> </span></button>
+
+                                                    {{\App\Http\Controllers\CommentController::countReaction($allpost->id)}}
+                                                </form>
+                                        <a href="#"><span class="lnr lnr-bubble"></span>
+                                            {{\App\Http\Controllers\CommentController::countComments($allpost->id)}}
+                                        </a>
                                         <a href="#"><span class="lnr lnr-eye"></span>300</a>
                                     </div>
                                     <div class="right f-right">

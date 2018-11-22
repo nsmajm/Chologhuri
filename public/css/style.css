@@ -427,3 +427,39 @@ float: left;
 .facebook{
     margin-left: 10px;
 }
+#postbody {
+    background: #efefef;
+}
+ol {
+    list-style: none;
+}
+
+.comment.even.thread-even.depth-1 {
+    margin-top: 40px;
+}
+.comment-wrap {
+    border: 1px solid #e5e5e5;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+.comment-theme {
+    float: left;
+    margin-right: 30px;
+}
+
+.comment-main-area {
+    overflow: hidden;
+}
+.comment-wrapper {
+    position: relative;
+}
+.comment_user_name{
+    text-transform:capitalize;
+}
+.left a {
+    margin-right: 6px;
+    position: relative;
+    bottom: 24px !important;
+    left: 57px !important;
+}

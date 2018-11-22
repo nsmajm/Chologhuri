@@ -10,7 +10,7 @@ class AdminController extends Controller
 
     public function index()
     {
-        return view('Admin.mainContent');
+        return view('Admin.Home.index');
     }
 
     /**
