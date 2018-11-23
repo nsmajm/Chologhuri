@@ -26,7 +26,7 @@ class AuthorController  extends Controller
 
     public function index()
     {
-        $post = Post::where('user_id',Auth::id())->where('status','1')->get();
+        $post = Post::where('user_id',Auth::id())->get();
 
         return view('User.Author.managePost')->with('posts',$post);
     }

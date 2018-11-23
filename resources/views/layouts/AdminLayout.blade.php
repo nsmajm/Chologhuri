@@ -66,7 +66,8 @@
                         <i class="mdi mdi-home menu-icon"></i>
                         <span class="menu-title">Home</span>
                     </a>
-                </li><li class="nav-item">
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{route('admin.index')}}">
                         <i class="mdi mdi-view-quilt menu-icon"></i>
                         <span class="menu-title">Dashboard</span>
@@ -76,7 +77,7 @@
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                         <i class="mdi mdi-account menu-icon"></i>
-                        <span class="menu-title">Users</span>
+                        <span class="menu-title">Users <span class="badge badge-pill badge-danger">{{count(\App\User::where('status','0')->get())}}</span></span>
                         <i class="menu-arrow"></i>
                     </a>
                     <div class="collapse" id="ui-basic">
@@ -89,7 +90,7 @@
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="collapse" href="#posts" aria-expanded="false" aria-controls="ui-basic">
                         <i class="mdi mdi-account menu-icon"></i>
-                        <span class="menu-title">Posts</span>
+                        <span class="menu-title">Posts <span class="badge badge-pill badge-danger">{{count(\App\Model\Post::where('status','0')->get())}}</span></span>
                         <i class="menu-arrow"></i>
                     </a>
                     <div class="collapse" id="posts">
@@ -104,13 +105,26 @@
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="collapse" href="#comments" aria-expanded="false" aria-controls="ui-basic">
                         <i class="mdi mdi-account menu-icon"></i>
-                        <span class="menu-title">Comments</span>
+                        <span class="menu-title">Comments <span class="badge badge-pill badge-danger">{{count(\App\Model\Comment::where('status','0')->get())}}</span></span>
                         <i class="menu-arrow"></i>
                     </a>
                     <div class="collapse" id="comments">
                         <ul class="nav flex-column sub-menu">
                             <li class="nav-item"> <a class="nav-link" href="{{route('admin.showComments')}}">All Comments</a></li>
                             <li class="nav-item"> <a class="nav-link" href="{{route('admin.showBlockComments')}}">Blocked Comments</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#support" aria-expanded="false" aria-controls="ui-basic">
+                        <i class="fa fa-support menu-icon"></i>
+                        <span class="menu-title">Support  <span class="badge badge-pill badge-danger">{{count(\App\Model\Support::where('isSolved','0')->get())}}</span></span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="support">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <a class="nav-link" href="{{route('admin.viewSupport')}}">Show Support</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="{{route('admin.viewPendingSupport')}}">Pending Support</a></li>
                         </ul>
                     </div>
                 </li>

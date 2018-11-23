@@ -13,6 +13,9 @@
 Auth::routes(['verify' => true]);
 
 Route::get('/','HomeController@index' )->name('home.index');
+Route::get('/testindex',function (){
+
+});
 Route::get('/post/{slug}','PostController@showSinglePost')->name('singlePost.show');
 Route::get('/contact','SupportController@index')->name('support.index');
 Route::post('/contact','SupportController@postSupport')->name('support.post');
@@ -72,6 +75,12 @@ Route::group(['middleware' => ['auth']],function (){
         Route::post('comment/edit','Admin\PostController@updateComment')->name('admin.comment.update');
         Route::post('comment/edit-form','Admin\PostController@editCommentForm')->name('admin.editCommentForm');
 
+
+//Support
+        Route::get('support/show','Admin\AdminController@viewSupport')->name('admin.viewSupport');
+        Route::get('support/show-pending','Admin\AdminController@viewPendingSupport')->name('admin.viewPendingSupport');
+        Route::post('support/show-form','Admin\AdminController@showForm')->name('admin.showForm');
+        Route::post('support/solved','Admin\AdminController@solvedSupport')->name('admin.solvedSupport');
 
 
     });

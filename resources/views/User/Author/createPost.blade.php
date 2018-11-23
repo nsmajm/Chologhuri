@@ -49,6 +49,11 @@
                         <label for="PostThumbNail">Post Thumbnail <i class="bg-dark" style="color: #fff;">(preview Image)</i></label>
                         <input type="file" name="thumbnail" class="form-control">
                     </div>
+
+                    <div class="form-group">
+                        <label for="galleryImage">Gallery Image <i class="bg-dark" style="color: #fff;">(preview Image)</i></label>
+                        <input type="file" name="galleryImage[]" class="form-control" multiple>
+                    </div>
                 </div>
                 <div class="col-3">
 

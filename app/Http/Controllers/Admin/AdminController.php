@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Model\Support;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
@@ -13,69 +15,25 @@ class AdminController extends Controller
         return view('Admin.Home.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function viewSupport(){
+        $support = Support::all();
+        return view('Admin.Support.viewSupport')->with('supports',$support);
+    }
+    public function viewPendingSupport(){
+        $support = Support::where('isSolved','0')->get();
+        return view('Admin.Support.viewPendingSupport')->with('supports',$support);
+    }
+    public function showForm(Request $request){
+        $support = Support::findOrfail($request->id);
+        return view('Admin.Support.editSupport')->with('support',$support);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function solvedSupport(Request $request){
+        $support = Support::findOrFail($request->postId);
+        $support->isSolved='1';
+        $support->solution = $request->solution;
+        $support->update();
+        Session::put('message','Solution Send To the User');
+        return back();
     }
 }

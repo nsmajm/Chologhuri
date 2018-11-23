@@ -112,7 +112,11 @@
                         </div>
                         @endforeach
                     </div>
+                @if (count($takeThird) !=0)
+
+
                    @foreach($takeThird as $thirdPost)
+
                     <div class="post-wrapeer post-small post-border">
                         <div class="row">
                             <div class="col-xl-5 col-lg-5 col-md-5 pr-0 pr-xs-15">
@@ -158,7 +162,9 @@
                             </div>
                         </div>
                     </div>
+
                 @endforeach
+                        @endif
                 </div>
             </div>
         </div>

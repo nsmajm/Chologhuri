@@ -41,7 +41,7 @@
                 <div class="form-group">
                     <label for="exampleInputName1">Name</label>
                     @if (Auth::id())
-                        <input type="text" class="form-control"  name="name" id="name" value="{{Auth::user()->name}}" >
+                        <input type="text" class="form-control"  name="name" id="name" value="{{Auth::user()->name}}" disabled="disabled" >
                     @else
                         <input type="text" class="form-control" id="name" name="name" placeholder="Name">
                     @endif
@@ -50,7 +50,7 @@
                 <div class="form-group">
                     <label for="exampleInputEmail3">Email address</label>
                     @if (Auth::id())
-                        <input type="text" class="form-control"  name="email" id="email" value="{{Auth::user()->email}}">
+                        <input type="text" class="form-control"  name="email" id="email" value="{{Auth::user()->email}}" disabled="disabled">
                     @else
                     <input type="email" class="form-control" name="email" id="email" placeholder="Email">
                         @endif

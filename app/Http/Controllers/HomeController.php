@@ -23,7 +23,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $blogPostfirst = \App\Model\Post::with('users')->where('status','1')->latest()->take(1)->get();
+        $allPost = \App\Model\Post::with('users')->where('status','1')->orderBy('created_at', 'desc')->skip(1)->take(8)->get();
+        return view('testindex')->with('posts',$blogPostfirst)->with('allPost',$allPost);
     }
 
 }

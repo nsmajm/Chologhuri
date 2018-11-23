@@ -28,7 +28,7 @@ class BlogPostProvider extends ServiceProvider
              */
             $allBlogPost = Post::with('users')->where('status','1')->orderBy('created_at', 'desc')->skip(3)->paginate(8);
 
-            $view->with('blogPostfirst', $blogPostfirst)->with('takeSecond',$skipFirstTakeseconed)
+            $view->with('testindex', $blogPostfirst)->with('takeSecond',$skipFirstTakeseconed)
                 ->with('takeThird',$takeThird)->with('allposts', $allBlogPost);
         });
     }

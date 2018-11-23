@@ -18,6 +18,9 @@
     <div style="padding:0px 30px 0px 30px;margin-top: -70px;">
         <div class="pull-right mb-3" style="padding:30px" >
             <!-- Large modal -->
+            @if(\Illuminate\Support\Facades\Session::has('successPost'))
+                <div class="alert alert-success">Your Post has been posted..waiting for admin approval</div>
+                @endif
 
         </div>
         <div class="card col-12">
