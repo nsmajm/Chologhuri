@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Model\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CommentController extends Controller
 {
@@ -18,12 +19,13 @@ class CommentController extends Controller
         $comment->user_id = Auth::id();
         $comment->status= '1';
         $comment->save();
-        return response()->json(['message',"comment posted"]);
+        Session::put('comment');
+        return back();
     }
 
     public static function show($id)
     {
-       $comment = Comment::where('post_id',$id)->get();
+       $comment = Comment::where('post_id',$id)->orderBy('created_at','desc')->get();
        return $comment;
     }
     public static function countComments($id){

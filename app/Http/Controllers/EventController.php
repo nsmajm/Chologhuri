@@ -45,8 +45,10 @@ class EventController extends Controller
         $event->save();
         return redirect()->route('author.index');
     }
-    public function manageEvent(){
-
+    public function eventDetails($id){
+        $event = Event::findOrFail($id);
+        return $event;
     }
+
 
 }

@@ -13,9 +13,12 @@
 Auth::routes(['verify' => true]);
 
 Route::get('/','HomeController@index' )->name('home.index');
-Route::get('/testindex',function (){
+Route::get('/blogpage','HomeController@blogpage' )->name('home.blogpage');
+Route::get('/blogpage/category/{id}','HomeController@showByCategory' )->name('home.showByCategory');
+Route::get('/blogpage/subcategory/{id}','HomeController@showBySubCategory' )->name('home.showBySubCategory');
+Route::post('/event/details','EventController@eventDetails' )->name('event.eventDetails');
 
-});
+
 Route::get('/post/{slug}','PostController@showSinglePost')->name('singlePost.show');
 Route::get('/contact','SupportController@index')->name('support.index');
 Route::post('/contact','SupportController@postSupport')->name('support.post');

@@ -14,5 +14,9 @@ class SubCategoryController extends Controller
         $subCategory = SubCategory::where('category_id',$id)->pluck("subCategoryName","id");
         return $subCategory;
     }
+     public static function getSubCateogryName($id){
+         $category = SubCategory::findOrFail($id);
+         return $category->subCategoryName;
+     }
 
 }

@@ -106,13 +106,13 @@ class PostController extends Controller
     public function showSinglePost($slug)
     {
        $singlePost = Post::where('id',$slug)->first();
-
-
+       $randomPost = Post::where('id',$slug)->inRandomOrder()->take(4)->get();
         $singlePostImage = DB::table('posts')
             ->join('post_images','post_images.postId','=','posts.id')->where('post_images.postId',$slug)
            ->get();
 
-        return view('Home.singlePost')->with('singlePost',$singlePost)->with('imagepost',$singlePostImage);
+        return view('Home.singlePost')->with('singlePost',$singlePost)->with('imagepost',$singlePostImage)
+            ->with('randomPost',$randomPost);
 
     }
 

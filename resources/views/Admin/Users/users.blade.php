@@ -52,11 +52,6 @@
                                         <button data-toggle="modal" data-target="editUser" type="button" onclick="editUser(this)"  data-panel-id="{{$user->id}}"
                                                 class="btn btn-sm btn-primary btn-icon btnEdit" ><i class="fa fa-edit"></i>
                                         </button>
-                                        <button type="button" class="btn btn-sm btn-primary  btn-icon" onclick="deleteUser()">
-
-                                            <i class="fa fa-trash"></i>
-                                        </button>
-
                                         <!-- Modal -->
                                         <div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-hidden="true">
                                             <div class="modal-dialog" role="document">

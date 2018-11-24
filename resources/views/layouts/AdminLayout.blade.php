@@ -77,26 +77,30 @@
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                         <i class="mdi mdi-account menu-icon"></i>
-                        <span class="menu-title">Users <span class="badge badge-pill badge-danger">{{count(\App\User::where('status','0')->get())}}</span></span>
+                        <span class="menu-title">Users </span>
                         <i class="menu-arrow"></i>
                     </a>
                     <div class="collapse" id="ui-basic">
                         <ul class="nav flex-column sub-menu">
                             <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.index')}}">Active Users</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.otherUsers')}}">Others Users</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="{{route('admin.user.otherUsers')}}">Others Users <span class="badge badge-pill badge-danger">{{count(\App\User::where('status','0')->get())}}</span></a></li>
                         </ul>
                     </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="collapse" href="#posts" aria-expanded="false" aria-controls="ui-basic">
                         <i class="mdi mdi-account menu-icon"></i>
-                        <span class="menu-title">Posts <span class="badge badge-pill badge-danger">{{count(\App\Model\Post::where('status','0')->get())}}</span></span>
+                        <span class="menu-title">Posts
+                        @if (count(\App\Model\Post::where('status','2')->get())>0)
+                                <span class="badge badge-pill badge-danger">{{count(\App\Model\Post::where('status','2')->get())}}</span>
+                        @endif
+                        </span>
                         <i class="menu-arrow"></i>
                     </a>
                     <div class="collapse" id="posts">
                         <ul class="nav flex-column sub-menu">
                             <li class="nav-item"> <a class="nav-link" href="{{route('admin.post.show')}}">All Posts</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="{{route('admin.post.pendingPost')}}">Pending Posts</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="{{route('admin.post.pendingPost')}}">Pending Posts  <span class="badge badge-pill badge-danger">{{count(\App\Model\Post::where('status','2')->get())}}</span></a></li>
                             <li class="nav-item"> <a class="nav-link" href="{{route('admin.post.blockedPost')}}">Blocked Posts</a></li>
                         </ul>
                     </div>
@@ -105,7 +109,7 @@
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="collapse" href="#comments" aria-expanded="false" aria-controls="ui-basic">
                         <i class="mdi mdi-account menu-icon"></i>
-                        <span class="menu-title">Comments <span class="badge badge-pill badge-danger">{{count(\App\Model\Comment::where('status','0')->get())}}</span></span>
+                        <span class="menu-title">Comments </span>
                         <i class="menu-arrow"></i>
                     </a>
                     <div class="collapse" id="comments">

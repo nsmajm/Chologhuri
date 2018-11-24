@@ -86,59 +86,59 @@
     <div class="header_style_wrapper">
         <!-- End top bar -->
         <div class="top_bar">
-                    <div class="social_wrapper" style="position: relative;left: 38%;">
-                        <ul>
-                            <li class="searchTop" style="margin-right: 40px">
-                                <input type="text"  style="width: 400px;">
-                            </li>
-                            @if(Auth::id())
+            <div class="social_wrapper" style="position: relative;left: 38%;">
+                <ul>
+                    <li class="searchTop" style="margin-right: 40px">
+                        <input type="text"  style="width: 400px;">
+                    </li>
+                    @if(Auth::id())
 
-                                <li class="facebook">
-                                    <a target="_blank" href="#">{{Auth::user()->name}}</a>
-                                </li>
-                                @if(Auth::user()->hasRole() == 'admin')
-                                    <li class="auth"><a href="{{route('admin.index')}}">Go To Dashboard</a></li>
-                                @elseif(Auth::user()->hasRole() == 'moderator')
-                                    <li class="auth"><a href="{{route('moderator.index')}}">Go To Dashboard</a></li>
-                                @elseif(Auth::user()->hasRole() == 'author')
-                                    <li class="auth"><a href="{{route('author.index')}}">Go To Dashboard</a></li>
+                        <li class="facebook">
+                            <a target="_blank" href="#">{{Auth::user()->name}}</a>
+                        </li>
+                        @if(Auth::user()->hasRole() == 'admin')
+                            <li class="auth"><a href="{{route('admin.index')}}">Go To Dashboard</a></li>
+                        @elseif(Auth::user()->hasRole() == 'moderator')
+                            <li class="auth"><a href="{{route('moderator.index')}}">Go To Dashboard</a></li>
+                        @elseif(Auth::user()->hasRole() == 'author')
+                            <li class="auth"><a href="{{route('author.index')}}">Go To Dashboard</a></li>
 
-                                @endif
-                                <li class="twitter">
-                                    <a href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                        @endif
+                        <li class="twitter">
+                            <a href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                                {{ __('Logout') }}
+                            </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </li>
-                            @else
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </li>
+                    @else
 
-                                <li class="twitter">
-                                    <a  href="{{route('login')}}">Login</a>
-                                </li>
-                                <li class="twitter">
-                                    <a   href="{{route('register')}}">Register</a>
-                                </li>
-                            @endif
+                        <li class="twitter">
+                            <a  href="{{route('login')}}">Login</a>
+                        </li>
+                        <li class="twitter">
+                            <a   href="{{route('register')}}">Register</a>
+                        </li>
+                    @endif
 
 
-                        </ul>
-                  </div>
+                </ul>
+            </div>
             <!-- Begin logo -->
             <div id="logo_wrapper">
                 <!-- Begin right corner buttons -->
 
-                                                                    {{--<div id="logo_right_button">--}}
+            {{--<div id="logo_right_button">--}}
 
 
-                                                                    {{--<input type="text">--}}
+            {{--<input type="text">--}}
 
 
-                                                                        {{--</div>--}}
+            {{--</div>--}}
 
             <!-- End right corner buttons -->
                 <div id="logo_normal" class="logo_container">
@@ -160,16 +160,16 @@
                                         <a href="{{route('home.index')}}">Home</a>
                                     </li>
                                     <li id="menu-item-146" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-146">
-                                        <a href="{{route('home.blogpage')}}">Blog Page</a>
+                                        <a href="#">Blog Page</a>
                                     </li>
                                     <li id="menu-item-382" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children arrow menu-item-382">
                                         <a href="#">Category</a>
                                         <ul class="sub-menu">
                                             @foreach($categories as $cat)
-                                            <li id="menu-item-380" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-380">
-                                                <a href="{{route('home.showByCategory',[$cat->id])}}">{{$cat->categoryName}}</a>
-                                            </li>
-                                                @endforeach
+                                                <li id="menu-item-380" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-380">
+                                                    <a href="{{route('home.showByCategory',[$cat->id])}}">{{$cat->categoryName}}</a>
+                                                </li>
+                                            @endforeach
                                         </ul>
                                     </li>
                                     <li id="menu-item-150" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-150">
@@ -187,72 +187,7 @@
             </div>
         </div>
     </div>
-    <div id="post_featured_slider" class="slider_wrapper">
-        <div class="flexslider" data-height="550">
-            <ul class="slides">
-                <li>
-                    <a href="http://themes.themegoods.com/letsblog/demo/top-10-ingredients/">
-                        <div class="slider_image" style="background-image:url('http://themegoodsthemes-pzbycso8wng.stackpathdns.com/letsblog/demo/wp-content/uploads/2015/07/1.jpg');">
-                            <div class="slide_post">
-                                <div class="slide_post_date">July 22, 2015</div>
-                                <h2>Top 10 Ingredients</h2>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="http://themes.themegoods.com/letsblog/demo/big-city-light/">
-                        <div class="slider_image" style="background-image:url('http://themegoodsthemes-pzbycso8wng.stackpathdns.com/letsblog/demo/wp-content/uploads/2015/07/DeathtoStock_NYC11-Custom1.jpg');">
-                            <div class="slide_post">
-                                <div class="slide_post_date">July 22, 2015</div>
-                                <h2>Big City Light</h2>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="http://themes.themegoods.com/letsblog/demo/city-center-bridge/">
-                        <div class="slider_image" style="background-image:url('http://themegoodsthemes-pzbycso8wng.stackpathdns.com/letsblog/demo/wp-content/uploads/2015/07/15794918936_855690cb09_b1.jpg');">
-                            <div class="slide_post">
-                                <div class="slide_post_date">July 22, 2015</div>
-                                <h2>City Center Bridge</h2>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="http://themes.themegoods.com/letsblog/demo/golden-snow-land/">
-                        <div class="slider_image" style="background-image:url('http://themegoodsthemes-pzbycso8wng.stackpathdns.com/letsblog/demo/wp-content/uploads/2015/07/snow-winter-fallen-trees.jpg');">
-                            <div class="slide_post">
-                                <div class="slide_post_date">July 22, 2015</div>
-                                <h2>Golden Snow Land</h2>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="http://themes.themegoods.com/letsblog/demo/fashion-model-shooting/">
-                        <div class="slider_image" style="background-image:url('http://themegoodsthemes-pzbycso8wng.stackpathdns.com/letsblog/demo/wp-content/uploads/2015/07/photography_2.jpg');">
-                            <div class="slide_post">
-                                <div class="slide_post_date">July 22, 2015</div>
-                                <h2>Fashion Model Shoot</h2>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="http://themes.themegoods.com/letsblog/demo/beauty-of-nature/">
-                        <div class="slider_image" style="background-image:url('http://themegoodsthemes-pzbycso8wng.stackpathdns.com/letsblog/demo/wp-content/uploads/2015/07/33dca3b1ecb01a7d-2012_WeAre-TheRhoads_oct_KinfolkVol5_10_o.jpg');">
-                            <div class="slide_post">
-                                <div class="slide_post_date">July 22, 2015</div>
-                                <h2>Beauty of Nature</h2>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
+
     <div id="page_content_wrapper">
         <div class="inner">
             <!-- Begin main content -->
@@ -260,43 +195,46 @@
                 <div class="sidebar_content two_cols mixed">
                     <!-- Begin each blog post -->
                     <div id="twoRowPost" class=" post type-post status-publish format-standard has-post-thumbnail hentry category-art category-lifestyle tag-nature tag-photography tag-travel">
-                        @foreach($posts as $post)
+                       @if (count($allPost)==0)
+                           <div class="alert alert-warning">No Post In This Category</div>
+                      @else
+                        {{--@foreach($posts as $post)--}}
 
-                            <div class="post_wrapper">
-                                <div class="post_content_wrapper">
-                                    <div class="post_header">
-                                        <div class="post_header_title">
-                                            <h5>
-                                                <a href="{{route('singlePost.show',[$post->slug])}}">{{$post->postTitle}}</a>
-                                            </h5>
-                                            <div class="post_detail post_date">
-                                                <span class="post_info_date"><span>
-                                                        {{$post->created_at->diffForHumans()}}
-                                                    </span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="post_img static">
-                                            <a href="{{route('singlePost.show',[$post->id])}}">{{$post->postTitle}}}>
-                                                <img src="{{asset('thumbnail/')}}/{{$post->postThumbnail}}" alt="" class="" style="width:960px;height:640px;"/>
-                                            </a>
-                                        </div>
-                                        <br class="clear"/>
-                                        <p>{!! str_limit($post->postBody,300) !!}</p>
-                                        <div class="post_button_wrapper">
-                                            <a class="readmore" href="{{route('singlePost.show',[$post->id])}}">Read More</a>
-                                        </div>
-                                        <br class="clear"/>
-                                        <div class="post_info_cat">
-                                            <span>
-                                                <a href="{{route('singlePost.show',[$post->id])}}">{{\App\Http\Controllers\CategoryController::getCategoryName($post->category_id)}}</a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-
+                            {{--<div class="post_wrapper">--}}
+                                {{--<div class="post_content_wrapper">--}}
+                                    {{--<div class="post_header">--}}
+                                        {{--<div class="post_header_title">--}}
+                                            {{--<h5>--}}
+                                                {{--<a href="{{route('singlePost.show',[$post->slug])}}">{{$post->postTitle}}</a>--}}
+                                            {{--</h5>--}}
+                                            {{--<div class="post_detail post_date">--}}
+                                                {{--<span class="post_info_date"><span>--}}
+                                                        {{--{{$post->created_at->diffForHumans()}}--}}
+                                                    {{--</span>--}}
+                                                {{--</span>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                        {{--<div class="post_img static">--}}
+                                            {{--<a href="{{route('singlePost.show',[$post->id])}}">{{$post->postTitle}}}>--}}
+                                                {{--<img src="{{asset('thumbnail/')}}/{{$post->postThumbnail}}" alt="" class="" style="width:960px;height:640px;"/>--}}
+                                            {{--</a>--}}
+                                        {{--</div>--}}
+                                        {{--<br class="clear"/>--}}
+                                        {{--<p>{!! str_limit($post->postBody,300) !!}</p>--}}
+                                        {{--<div class="post_button_wrapper">--}}
+                                            {{--<a class="readmore" href="{{route('singlePost.show',[$post->id])}}">Read More</a>--}}
+                                        {{--</div>--}}
+                                        {{--<br class="clear"/>--}}
+                                        {{--<div class="post_info_cat">--}}
+                                            {{--<span>--}}
+                                                {{--<a href="{{route('singlePost.show',[$post->id])}}">{{\App\Http\Controllers\CategoryController::getCategoryName($post->category_id)}}</a>--}}
+                                            {{--</span>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--@endforeach--}}
+                        @endif
 
                     </div>
                     <br class="clear"/>
@@ -348,12 +286,14 @@
                             </div>
 
                         </div>
-                    <!-- End each blog post -->
                         <!-- End each blog post -->
-                @endforeach
+                        <!-- End each blog post -->
+                    @endforeach
+
+                    {{--{{ $allpost->fragment('posts')->links() }}--}}
                 </div>
                 <div class="sidebar_wrapper">
-                 @include('pages.sidebar')
+                        @include('pages.sidebar')
                     <br class="clear"/>
                 </div>
             </div>

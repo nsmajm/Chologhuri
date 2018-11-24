@@ -89,14 +89,17 @@ class LoginController extends Controller
         $findUser = User::where('email',$socialUser->email)->first();
 
         if($findUser){
-           if($findUser->status=='2'){
+           if($findUser->status=='0'){
                Session::flash('message','Your Account Has Been Blocked Contact to the Admin');
                return redirect()->route('login');
+//               return $findUser->status;
            }
-            Auth::login($findUser);
-          //  return $findUser->socialUser;
+           else{
+               Auth::login($findUser);
+               //  return $findUser->socialUser;
+               return redirect()->route('home.index');
+           }
 
-            return redirect()->route('home.index');
         }
 
         else{

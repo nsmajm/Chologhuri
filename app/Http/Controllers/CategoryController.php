@@ -17,7 +17,6 @@ class CategoryController extends Controller
         $category = Category::all()->where('status','=','1');
         return response()->json($category);
     }
-
    public static function getCategoryName($id){
         $category = Category::findOrFail($id);
         return $category->categoryName;
