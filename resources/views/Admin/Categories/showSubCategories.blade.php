@@ -67,21 +67,21 @@
        <div class="card col-12">
            <div class="card-body" >
                <div class="category userdata">
-                  @if(count($categories)==null)
+                  @if(count($Subcategories)==null)
                       No Sub Categories Added !Please Add a Category First
                       @else
                    <table class="table table-hover table-bordered">
                        <thead>
                        <tr>
                            <th width="20%" scope="col">Sub Category Id</th>
-                           <th width="20%" scope="col">Category Name</th>
+
                            <th width="40%" scope="col">Sub Category Name</th>
                            <th width="20%" scope="col">Action</th>
                            <th></th>
                        </tr>
                        </thead>
                        <tbody>
-                       @foreach($categories as $category)
+                       @foreach($Subcategories as $category)
                        <tr>
 
                            <td>{{$category->id}}</td>

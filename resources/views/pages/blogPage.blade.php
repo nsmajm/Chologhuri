@@ -48,6 +48,11 @@
         .scroll>.social_wrapper{
             display: none;
         }
+        .floatIcon {
+            right: 0;
+            bottom: 0;
+            position: fixed;
+        }
     </style>
     <link rel="stylesheet" href="{{url('css/Home/reset.css')}}">
     <link rel="stylesheet" href="{{url('css/Home/animation.css')}}">
@@ -71,6 +76,9 @@
     <script type='text/javascript' src='http://themegoodsthemes-pzbycso8wng.stackpathdns.com/letsblog/demo/wp-content/themes/letsblog/js/jquery.magnific-popup.js'></script>
 </head>
 <body class="home blog">
+
+<h1 class="floatIcon" id="chatIcon"><i class="fa fa-comments"></i></h1>
+
 <input type="hidden" id="pp_enable_right_click" name="pp_enable_right_click" value=""/>
 <input type="hidden" id="pp_enable_dragging" name="pp_enable_dragging" value=""/>
 <input type="hidden" id="pp_ajax_search" name="pp_ajax_search" value="1"/>
@@ -331,6 +339,14 @@
             slideshow: 0,
             slideshowSpeed: 3000	});
     });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('#chatIcon').click(function () {
+
+        });
+    })
 </script>
 
 </body>

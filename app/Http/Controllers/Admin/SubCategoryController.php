@@ -15,7 +15,7 @@ class SubCategoryController extends Controller
     {
         $category = SubCategory::where('status','1')->get();
         $sub = Category::all();
-        return view('Admin.Categories.showSubCategories')->with('categories',$category)->with('sub',$sub);
+        return view('Admin.Categories.showSubCategories')->with('Subcategories',$category)->with('sub',$sub);
     }
     public function store(Request $request)
     {
@@ -28,7 +28,7 @@ class SubCategoryController extends Controller
         $category->status = '1';
         $category->save();
         Session::flash('success', 'Sub Category Added');
-        return redirect()->route('admin.category.show');
+        return redirect()->route('admin.subcategory.show');
 
 
     }
