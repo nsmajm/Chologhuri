@@ -122,19 +122,32 @@
                                 <li class="facebook">
                                     <a target="_blank" href="#">{{Auth::user()->name}}</a>
                                 </li>
+                                @if(Auth::user()->hasRole() == 'admin')
+                                    <li class="auth"><a href="{{route('admin.index')}}">Go To Dashboard</a></li>
+                                @elseif(Auth::user()->hasRole() == 'moderator')
+                                    <li class="auth"><a href="{{route('moderator.index')}}">Go To Dashboard</a></li>
+                                @elseif(Auth::user()->hasRole() == 'author')
+                                    <li class="auth"><a href="{{route('author.index')}}">Go To Dashboard</a></li>
+
+                                @endif
                                 <li class="twitter">
-                                    <a target="_blank" href="http://twitter.com/#">Go To Dashboard</a>
-                                </li>
-                                <li class="twitter">
-                                    <a target="_blank" href="http://twitter.com/#">Logout</a>
+                                    <a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
                                 </li>
                             @else
 
                                 <li class="twitter">
-                                    <a target="_blank" href="http://twitter.com/#">Login</a>
+                                    <a  href="{{route('login')}}">Login</a>
                                 </li>
                                 <li class="twitter">
-                                    <a target="_blank" href="http://twitter.com/#">Register</a>
+                                    <a   href="{{route('register')}}">Register</a>
                                 </li>
                             @endif
 

@@ -86,59 +86,59 @@
     <div class="header_style_wrapper">
         <!-- End top bar -->
         <div class="top_bar">
-                    <div class="social_wrapper" style="position: relative;left: 38%;">
-                        <ul>
-                            <li class="searchTop" style="margin-right: 40px">
-                                <input type="text"  style="width: 400px;">
-                            </li>
-                            @if(Auth::id())
+            <div class="social_wrapper" style="position: relative;left: 38%;">
+                <ul>
+                    <li class="searchTop" style="margin-right: 40px">
+                        <input type="text"  style="width: 400px;">
+                    </li>
+                    @if(Auth::id())
 
-                                <li class="facebook">
-                                    <a target="_blank" href="#">{{Auth::user()->name}}</a>
-                                </li>
-                                @if(Auth::user()->hasRole() == 'admin')
-                                    <li class="auth"><a href="{{route('admin.index')}}">Go To Dashboard</a></li>
-                                @elseif(Auth::user()->hasRole() == 'moderator')
-                                    <li class="auth"><a href="{{route('moderator.index')}}">Go To Dashboard</a></li>
-                                @elseif(Auth::user()->hasRole() == 'author')
-                                    <li class="auth"><a href="{{route('author.index')}}">Go To Dashboard</a></li>
+                        <li class="facebook">
+                            <a target="_blank" href="#">{{Auth::user()->name}}</a>
+                        </li>
+                        @if(Auth::user()->hasRole() == 'admin')
+                            <li class="auth"><a href="{{route('admin.index')}}">Go To Dashboard</a></li>
+                        @elseif(Auth::user()->hasRole() == 'moderator')
+                            <li class="auth"><a href="{{route('moderator.index')}}">Go To Dashboard</a></li>
+                        @elseif(Auth::user()->hasRole() == 'author')
+                            <li class="auth"><a href="{{route('author.index')}}">Go To Dashboard</a></li>
 
-                                @endif
-                                <li class="twitter">
-                                    <a href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                        @endif
+                        <li class="twitter">
+                            <a href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                                {{ __('Logout') }}
+                            </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </li>
-                            @else
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </li>
+                    @else
 
-                                <li class="twitter">
-                                    <a  href="{{route('login')}}">Login</a>
-                                </li>
-                                <li class="twitter">
-                                    <a   href="{{route('register')}}">Register</a>
-                                </li>
-                            @endif
+                        <li class="twitter">
+                            <a  href="{{route('login')}}">Login</a>
+                        </li>
+                        <li class="twitter">
+                            <a   href="{{route('register')}}">Register</a>
+                        </li>
+                    @endif
 
 
-                        </ul>
-                  </div>
+                </ul>
+            </div>
             <!-- Begin logo -->
             <div id="logo_wrapper">
                 <!-- Begin right corner buttons -->
 
-                                                                    {{--<div id="logo_right_button">--}}
+            {{--<div id="logo_right_button">--}}
 
 
-                                                                    {{--<input type="text">--}}
+            {{--<input type="text">--}}
 
 
-                                                                        {{--</div>--}}
+            {{--</div>--}}
 
             <!-- End right corner buttons -->
                 <div id="logo_normal" class="logo_container">
@@ -166,10 +166,10 @@
                                         <a href="#">Category</a>
                                         <ul class="sub-menu">
                                             @foreach($categories as $cat)
-                                            <li id="menu-item-380" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-380">
-                                                <a href="{{route('home.showByCategory',[$cat->id])}}">{{$cat->categoryName}}</a>
-                                            </li>
-                                                @endforeach
+                                                <li id="menu-item-380" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-380">
+                                                    <a href="{{route('home.showByCategory',[$cat->id])}}">{{$cat->categoryName}}</a>
+                                                </li>
+                                            @endforeach
                                         </ul>
                                     </li>
                                     <li id="menu-item-150" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-150">
@@ -267,7 +267,7 @@
                                     <div class="post_header">
                                         <div class="post_header_title">
                                             <h5>
-                                                <a href="{{route('singlePost.show',[$post->slug])}}">{{$post->postTitle}}</a>
+                                                <a href="{{route('singlePost.show',[$post->id])}}">{{$post->postTitle}}</a>
                                             </h5>
                                             <div class="post_detail post_date">
                                                 <span class="post_info_date"><span>
@@ -282,7 +282,7 @@
                                             </a>
                                         </div>
                                         <br class="clear"/>
-                                        <p>{!! str_limit($post->postBody,300) !!}</p>
+                                        {{--<p>{!! str_limit($post->postBody,300) !!}</p>--}}
                                         <div class="post_button_wrapper">
                                             <a class="readmore" href="{{route('singlePost.show',[$post->id])}}">Read More</a>
                                         </div>
@@ -333,7 +333,7 @@
 
                                         <p></p>
                                         <p>
-                                            {!!str_limit( $allpost->postBody,300) !!}
+                                            {{--{!!str_limit( $allpost->postBody,300) !!}--}}
                                         </p>
                                         <p></p>
                                         <div class="post_button_wrapper">
@@ -348,12 +348,12 @@
                             </div>
 
                         </div>
-                    <!-- End each blog post -->
                         <!-- End each blog post -->
-                @endforeach
+                        <!-- End each blog post -->
+                    @endforeach
                 </div>
                 <div class="sidebar_wrapper">
-                 @include('pages.sidebar')
+                    @include('pages.sidebar')
                     <br class="clear"/>
                 </div>
             </div>

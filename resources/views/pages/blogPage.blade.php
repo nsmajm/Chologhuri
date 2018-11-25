@@ -279,7 +279,7 @@
 
                                         <p></p>
                                         <p>
-                                            {!!str_limit( $allpost->postBody,300) !!}
+                                            {{--{!!str_limit( $allpost->postBody,300) !!}--}}
                                         </p>
                                         <p></p>
                                         <div class="post_button_wrapper">
